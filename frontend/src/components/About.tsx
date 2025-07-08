@@ -23,12 +23,18 @@ export default function About() {
     return <p className="text-center py-5">Sedang memuat data...</p>;
   }
 
+  if (!data) {
+    return <p className="text-center py-5 text-danger">Data gagal dimuat.</p>;
+  }
+
+  const tools = Array.isArray(data.tools) ? data.tools : [];
+
   return (
     <section id="about" className="about-section container py-5">
       <div className="row align-items-center">
         <div className="col-md-4 text-center mb-4 mb-md-0">
           <img
-            src={data?.photo_url}
+            src={data.photo_url}
             alt="Foto Shabir"
             className="img-fluid rounded-circle shadow"
             style={{ maxWidth: '250px', objectFit: 'cover' }}
@@ -37,24 +43,24 @@ export default function About() {
 
         <div className="col-md-8">
           <h2 className="fw-bold mb-3">PROFIL</h2>
-          <p>{data?.profile}</p>
+          <p>{data.profile}</p>
 
           <h4 className="fw-bold mt-4">PENDIDIKAN</h4>
-          <p className="mb-1"><strong>{data?.education?.university}</strong></p>
-          <p className="mb-1">{data?.education?.program}</p>
+          <p className="mb-1"><strong>{data.education?.university}</strong></p>
+          <p className="mb-1">{data.education?.program}</p>
           <ul>
-            <li>Semester: {data?.education?.semester}</li>
-            <li>IPK: {data?.education?.gpa}</li>
-            <li>Mata Kuliah: {data?.education?.courses}</li>
+            <li>Semester: {data.education?.semester}</li>
+            <li>IPK: {data.education?.gpa}</li>
+            <li>Mata Kuliah: {data.education?.courses}</li>
           </ul>
 
           <h4 className="fw-bold mt-4">KEMAMPUAN</h4>
-          <p><strong>Teknis:</strong> {data?.skills?.technical}</p>
-          <p><strong>Non-Teknis:</strong> {data?.skills?.nonTechnical}</p>
+          <p><strong>Teknis:</strong> {data.skills?.technical}</p>
+          <p><strong>Non-Teknis:</strong> {data.skills?.nonTechnical}</p>
 
           <h4 className="fw-bold mt-4">TOOLS YANG DIGUNAKAN</h4>
           <div className="d-flex flex-wrap gap-3 mt-2">
-            {data?.tools?.map((tool: any, index: number) => (
+            {tools.map((tool: any, index: number) => (
               <img
                 key={index}
                 src={tool.icon}
