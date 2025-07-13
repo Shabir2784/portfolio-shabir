@@ -1,0 +1,66 @@
+/* Styling untuk bagian Pengalaman */
+#pengalaman {
+  padding: 40px;
+  background-color: #f8f9fa;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.work-card, .org-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 1.6em;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+strong {
+  color: #333;
+}
+
+/* Responsif - Mengatur kolom untuk mobile */
+@media (max-width: 768px) {
+  #pengalaman {
+    padding: 20px;
+  }
+
+  .work-card, .org-card {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
+}
+#pengalaman .card {
+  margin-bottom: 20px;
+}
+
+#pengalaman .card-body {
+  padding: 20px;
+}

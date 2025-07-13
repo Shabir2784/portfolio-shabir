@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
 import Projects from './Projecst';
+import Pengalaman from './Pengalaman';
 import Contact from './Contact';
 import Footer from './Footer';
 
@@ -24,6 +25,8 @@ export default function Portfolio() {
   });
 
   const [projects, setProjects] = useState<Project[]>([]);
+  const [pengalamanKerja, setPengalamanKerja] = useState<any[]>([]);
+  const [pengalamanOrganisasi, setPengalamanOrganisasi] = useState<any[]>([]);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/profile')
@@ -38,6 +41,24 @@ export default function Portfolio() {
       .catch(err => {
         console.error("Gagal mengambil data proyek:", err);
       });
+
+    axios.get('http://127.0.0.1:8000/api/pengalaman-kerja')
+    .then(res => {
+      console.log("Data pengalaman kerja berhasil diambil:", res.data);
+      setPengalamanKerja(res.data);
+    })
+    .catch(err => {
+      console.error("Gagal mengambil data pengalaman kerja:", err);
+    });
+
+  axios.get('http://127.0.0.1:8000/api/pengalaman-organisasi')
+    .then(res => {
+      console.log("Data pengalaman organisasi berhasil diambil:", res.data);
+      setPengalamanOrganisasi(res.data);
+    })
+    .catch(err => {
+      console.error("Gagal mengambil data pengalaman organisasi:", err);
+    });
   }, []);;
 
   return (
@@ -54,6 +75,9 @@ export default function Portfolio() {
       {/* Projek */}
       <Projects projects={projects} />
       
+      {/* Pengalaman */}
+      <Pengalaman pengalamanKerja={pengalamanKerja} pengalamanOrganisasi={pengalamanOrganisasi} />
+
 
       {/* kontak */}
       <Contact profile={profile} />

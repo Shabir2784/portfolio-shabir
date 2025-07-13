@@ -25,6 +25,9 @@ export default function Navbar() {
               <a className="nav-link" href="#projects">Proyek</a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="#pengalaman">Pengalaman</a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="#contact">Kontak</a>
             </li>
           </ul>

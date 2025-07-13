@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\About;
 
 use Illuminate\Http\Request;
+use App\Models\About;
 
 class AboutController extends Controller
 {
@@ -31,5 +31,4 @@ class AboutController extends Controller
             ]),
         ]);
     }
-
 }
